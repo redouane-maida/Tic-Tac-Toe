@@ -1,7 +1,7 @@
 """# Tic-Tac-Toe
 Matthieu, Franck, Redouane"""
 
-#Création du tableau et de ses lignes.
+# Création du tableau et de ses lignes.
 tableau = [" " for i in range(9)]
 
 def affichez_tableau():
@@ -12,6 +12,7 @@ def affichez_tableau():
     print(Ligne2)
     print(Ligne3)
 
+# Création du Tour par tour 
 def tour_joueur(icon):
     if icon == "X":
         nombre = 1
@@ -25,6 +26,7 @@ def tour_joueur(icon):
         print("Cette case est déja prise!")
         tour_joueur(icon)
 
+# Conditions de victoire
 def victoire(icon):
     if (tableau[0] == icon and tableau[1] == icon and tableau[2] == icon) or \
        (tableau[3] == icon and tableau[4] == icon and tableau[5] == icon) or \
@@ -38,13 +40,14 @@ def victoire(icon):
     else:
         return False
 
+# En cas d'égalité
 def egalite():
     if " " not in tableau:
         return True
     else:
         return False
 
-# Boucle principale du jeu
+# Message Victoire
 while True:
     affichez_tableau()
     tour_joueur("X")
