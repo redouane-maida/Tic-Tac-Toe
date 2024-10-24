@@ -20,8 +20,8 @@ def tour_joueur(icon):
         nombre = 1
     elif icon == "O":
         nombre = 2
-    print("A ton tour joueur {}".format(nombre))
-    choix = int(input("Fais ton choix (1-9): ").strip())
+    print(f"A ton tour joueur{nombre}")
+    choix = int(input("Fais ton choix (1-9): "))
     if tableau[choix - 1] == " ":
         tableau[choix - 1] = icon
     else:
