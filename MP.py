@@ -5,22 +5,20 @@ Matthieu, Franck, Redouane"""
 tableau = [" " for i in range(9)]
 
 def affichez_tableau():
-    Ligne1 = "| {} | {} | {} |".format(tableau[0], tableau[1], tableau[2])
-    Ligne2 = "| {} | {} | {} |".format(tableau[3], tableau[4], tableau[5])
-    Ligne3 = "| {} | {} | {} |".format(tableau[6], tableau[7], tableau[8])
-    print()
+    Ligne1 = f"| {tableau[0]} | {tableau[1]} | {tableau[2]} |"
+    Ligne2 = f"| {tableau[3]} | {tableau[4]} | {tableau[5]} |"
+    Ligne3 = f"| {tableau[6]} | {tableau[7]} | {tableau[8]} |"
     print(Ligne1)
     print(Ligne2)
     print(Ligne3)
-    print()
 
 def tour_joueur(icon):
     if icon == "X":
         nombre = 1
     elif icon == "O":
         nombre = 2
-    print("A ton tour joueur {}".format(nombre))
-    choix = int(input("Fais ton choix (1-9): ").strip())
+    print(f"A ton tour joueur {nombre}")
+    choix = int(input("Fais ton choix (1-9): "))
     if tableau[choix - 1] == " ":
         tableau[choix - 1] = icon
     else:
