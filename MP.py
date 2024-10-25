@@ -9,12 +9,10 @@ def affichez_tableau():
     Ligne2 = f"| {tableau[3]} | {tableau[4]} | {tableau[5]} |"
     Ligne3 = f"| {tableau[6]} | {tableau[7]} | {tableau[8]} |"
 
-    print()
     print(Ligne1)
     print(Ligne2)
     print(Ligne3)
-    print()
-
+    
 def tour_joueur(icon):
     if icon == "X":
         nombre = 1
