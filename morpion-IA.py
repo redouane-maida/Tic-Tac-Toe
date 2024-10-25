@@ -8,24 +8,27 @@ def affichez_tableau():
     Ligne1 = f"| {tableau[0]} | {tableau[1]} | {tableau[2]} |"
     Ligne2 = f"| {tableau[3]} | {tableau[4]} | {tableau[5]} |"
     Ligne3 = f"| {tableau[6]} | {tableau[7]} | {tableau[8]} |"
-
     print(Ligne1)
     print(Ligne2)
     print(Ligne3)
-    
-def tour_joueur(icon):
+
+# Création du Tour par tour 
+import random
+def tour_joueur(icon): #joueur
     if icon == "X":
         nombre = 1
-    elif icon == "O":
+        choix = int(input("Fais ton choix (1-9): "))
+    elif icon == "O": #Bot
         nombre = 2
-    print(f"A ton tour joueur{nombre}")
-    choix = int(input("Fais ton choix (1-9): "))
+        choix = random.randint(1,9)
+        print(f"Le bot (joueur {nombre}) a choisi la case {choix}")
     if tableau[choix - 1] == " ":
         tableau[choix - 1] = icon
     else:
         print("Cette case est déja prise!")
         tour_joueur(icon)
 
+# Conditions de victoire
 def victoire(icon):
     if (tableau[0] == icon and tableau[1] == icon and tableau[2] == icon) or \
        (tableau[3] == icon and tableau[4] == icon and tableau[5] == icon) or \
