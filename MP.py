@@ -12,20 +12,41 @@ def affichez_tableau():
     print(Ligne1)
     print(Ligne2)
     print(Ligne3)
-    
-def tour_joueur(icon):
-    if icon == "X":
-        nombre = 1
-    elif icon == "O":
-        nombre = 2
-    print(f"A ton tour joueur{nombre}")
-    choix = int(input("Fais ton choix (1-9): "))
-    if tableau[choix - 1] == " ":
-        tableau[choix - 1] = icon
-    else:
-        print("Cette case est déja prise!")
-        tour_joueur(icon)
 
+# Création du Tour par tour et du mode de jeu
+
+choix_mode_jeu = input("tapez 'A' pour jouer contre un bot ou 'B' pour jouer contre un joueur")
+
+if choix_mode_jeu == 'A':
+    import random
+    def tour_joueur(icon): #joueur
+        if icon == "X":
+            nombre = 1
+            choix = int(input("Fais ton choix (1-9): "))
+        elif icon == "O": #Bot
+            nombre = 2
+            choix = random.randint(1,9)
+            print(f"Le bot (joueur {nombre}) a choisi la case {choix}")
+        if tableau[choix - 1] == " ":
+            tableau[choix - 1] = icon
+        else:
+            print("Cette case est déja prise!")
+            tour_joueur(icon)
+elif choix_mode_jeu == 'B':
+    def tour_joueur(icon):
+        if icon == "X":
+            nombre = 1
+        elif icon == "O":
+            nombre = 2
+        print(f"A ton tour joueur {nombre}")
+        choix = int(input("Fais ton choix (1-9): "))
+        if tableau[choix - 1] == " ":
+            tableau[choix - 1] = icon
+        else:
+            print("Cette case est déja prise!")
+            tour_joueur(icon)
+
+# Conditions de victoire
 def victoire(icon):
     if (tableau[0] == icon and tableau[1] == icon and tableau[2] == icon) or \
        (tableau[3] == icon and tableau[4] == icon and tableau[5] == icon) or \
