@@ -7,6 +7,7 @@ def player_move(icon):
         nombre = 2
     print("A ton tour {}".format(nombre))
     choix = int(input("Fais ton choix (A1-C3): ").strip())
+    tableau = []
     if tableau[choix - 1] == " ":
         tableau[choix - 1] = icon
     else:
